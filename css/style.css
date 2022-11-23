@@ -1,0 +1,85 @@
+/*debug stuff*/
+
+.border {
+    border: 1px solid red;
+}
+
+/*MAIN STUFF*/
+
+:root {
+    /*color palette */
+    --bcg-color: rgb(255, 255, 255);
+    --text-color: rgb(0, 0, 0);
+    --header-green: rgb(92, 110, 94);
+    --main-green: rgb(217, 219, 198);
+    --nav-green: rgb(207, 211, 188);
+
+    /*transitions time*/
+    --delay-short: 200ms;
+    --delay-mid: 500ms;
+    --delay-long: 1000ms;
+}
+
+:root[data-theme="dark"] {
+    --text-color: rgb(255, 255, 255);
+    --bcg-color: rgb(60, 63, 65);
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Alaska,sans-serif;
+}
+
+body {
+    background: var(--bcg-color);
+    margin: 0 auto;
+}
+
+p, h1, h2, h3 {
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+.shadow {
+    box-shadow: 0 0.22em 1em var(--text-color);
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*HEADER*/
+
+header {
+    background: var(--header-green);
+}
+
+.header-wrapper {
+    display: grid;
+}
+
+.logo-img img {
+    width: 5em;
+}
+
+/*NAVIGATION*/
+
+nav {
+    background: var(--nav-green);
+}
+
+.nav-wrapper {
+    padding: 1em;
+}
+
+/*MAIN*/
+
+body {
+    background: var(--main-green);
+}
