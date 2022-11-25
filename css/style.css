@@ -100,21 +100,15 @@ nav {
     transition: var(--delay-mid);
 }
 
-.rotated {
-    transform: rotate(180deg);
-    transition: var(--delay-mid);
-}
-
 /*DROPDOWN*/
 
 .nav-dropdown-button img{
     height: 3em;
 }
 
-.nav-dropdown-button:hover nav {
-    opacity: 1;
-    transition: var(--delay-long);
-
+.nav-dropdown-button {
+    transition: var(--delay-mid);
+    display: flex;
 }
 
 /*MAIN*/
