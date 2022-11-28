@@ -157,13 +157,13 @@ body {
 
 .img-gallery-big {
     position: fixed;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.9);
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 100;   /*above everything*/
-    /*transform: scale(0);*/
+    transform: scale(0);
 }
 
 .big-gallery-inner {
@@ -178,22 +178,21 @@ body {
     width: 100%;
 }
 
-.arrow-left {
-    border: 1px solid red;
-    height: 2em;
-    width: 2em;
-    position: absolute;
+.arrows-div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
     top: 50%;
+    transform: translateY(50%);
     z-index: 1;
-    transform: translateY(-50%);
 }
 
-.arrow-right {
-    border: 1px solid red;
+.arrow {
     height: 2em;
     width: 2em;
-    position: absolute;
-    top: 50%;
-    z-index: 1;
-    transform: translateY(-50%);
+    background-size: contain;
+    cursor: pointer;
+    background-image: url("/images/dropdown.png");
+    transform: scale(0);
+    /*TODO set the scale of arrows to 0 if there is only one img (js)*/
 }
