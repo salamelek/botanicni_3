@@ -130,3 +130,70 @@ body {
     border-radius: 0.25em;
     background: var(--nav-green);
 }
+
+/*SMOL IMG*/
+
+.img-left {
+    float: left;
+    margin-right: 1em;
+}
+
+.img-right {
+    float: right;
+    margin-left: 1em;
+}
+
+.img-gallery-small {
+    height: 100px;
+    position: relative;
+}
+
+.img-gallery-small img {
+    height: 100%;
+    width: 100%;
+}
+
+/*BIG IMG*/
+
+.img-gallery-big {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;   /*above everything*/
+    /*transform: scale(0);*/
+}
+
+.big-gallery-inner {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.big-gallery-inner img {
+    width: 100%;
+}
+
+.arrow-left {
+    border: 1px solid red;
+    height: 2em;
+    width: 2em;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.arrow-right {
+    border: 1px solid red;
+    height: 2em;
+    width: 2em;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+}
