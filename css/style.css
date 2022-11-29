@@ -8,12 +8,13 @@
 
 :root {
     /*color palette */
-    --bcg-color: rgb(255, 255, 255);
+    --bcg-color: rgb(157, 200, 141);
     --text-color: rgb(0, 0, 0);
-    --header-green: rgb(92, 110, 94);
+    --header-green: rgb(22, 74, 65);
     --main-green: rgb(217, 219, 198);
-    --nav-green: rgb(207, 211, 188);
+    --nav-green: rgb(77, 119, 78);
     --shadow-color: rgb(0, 0, 0, 0.3);
+    --shadow-color-light: rgb(0, 0, 0, 0.15);
     --gray: rgb(200, 200, 200);
 
     /*transitions time*/
@@ -55,10 +56,18 @@ hr {
     box-shadow: 0 0.22em 1em var(--shadow-color);
 }
 
+.shadow-light {
+    box-shadow: 0 0.22em 1em var(--shadow-color-light);
+}
+
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.no-margin {
+    margin: 0;
 }
 
 /*HEADER*/
@@ -94,10 +103,7 @@ nav {
 
 .nav-wrapper {
     padding: 1em;
-}
-
-.shown {
-    transition: var(--delay-mid);
+    text-align: right;
 }
 
 /*DROPDOWN*/
@@ -114,7 +120,7 @@ nav {
 /*MAIN*/
 
 body {
-    background: var(--main-green);
+    background: var(--bcg-color);
 }
 
 .main-wrapper {
@@ -124,7 +130,6 @@ body {
 
 .index {
     --offset: 0.5em;
-    border: 1px solid black;
     padding: calc(var(--offset));
     margin-left: calc(var(--offset) * -1);
     border-radius: 0.25em;
