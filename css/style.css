@@ -121,6 +121,7 @@ ul {
     transition: var(--delay-mid);
     background-image: url("/images/bck_1.png");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .dropdown-nav {
