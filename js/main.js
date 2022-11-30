@@ -2,17 +2,17 @@ let isNavShown = false;
 let isImgBig = false;
 
 function toggleNav() {
-    let dropdown_btn = document.getElementById("nav-dropdown-btn");
-    let nav = document.getElementById("nav");
+    let dropdown_btn = document.getElementById("dropdown-btn");
+    let nav = document.getElementById("dropdown-nav");
 
     if (isNavShown) {
-        dropdown_btn.style = "transform: rotate(0deg);";
-        nav.style = "transform: translateY(-100%);";
+        dropdown_btn.style = "transform: rotate(90deg);";
+        nav.style = "transform: translateX(100%);";
 
         isNavShown = false;
     } else {
-        dropdown_btn.style = "transform: rotate(180deg);";
-        nav.style = "transform: translateY(0);";
+        dropdown_btn.style = "transform: rotate(-90deg);";
+        nav.style = "transform: translateX(0%);";
 
         isNavShown = true;
     }

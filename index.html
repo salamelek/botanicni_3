@@ -22,25 +22,29 @@
     <img src="" alt="Image not loading :/" id="big-img">
   </div>
 </div>
-<header class="shadow">
+<header>
   <div class="header-wrapper">
-    <div class="logo-img">
-      <img src="./images/logo.png" alt="logo">
+    <div class="inner-header shadow">
+      <img src="./images/logo.png" alt="Logo" class="header-logo">
     </div>
-    <div class="nav-dropdown-button" onclick="toggleNav()" id="nav-dropdown-btn">
-      <img src="./images/dropdown.png" alt="V" class="rotated">
-    </div>
+    <nav>
+      <div class="nav-btn-border shadow" onclick="toggleNav()">
+        <div class="dropdown-btn" id="dropdown-btn">
+          <img class="dropdown-img" src="./images/dropdown.png" alt="Dropdown btn">
+        </div>
+      </div>
+      <div class="nav-wrapper shadow" id="dropdown-nav">
+        <div class="dropdown-nav">
+          <p class="no-margin"><a href="">Link 1</a></p>
+          <hr>
+          <p class="no-margin"><a href="">Link 2</a></p>
+          <hr>
+          <p class="no-margin"><a href="">Link 3</a></p>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>
-<nav class="shadow" id="nav">
-  <div class="nav-wrapper">
-    <p class="no-margin"><a href="">Seznam</a></p>
-    <hr>
-    <p class="no-margin"><a href="">Področja</a></p>
-    <hr>
-    <p class="no-margin"><a href="">Sodelujoči</a></p>
-  </div>
-</nav>
 <main>
   <div class="main-wrapper">
     <section class="index shadow-light">

@@ -8,7 +8,7 @@
 
 :root {
     /*color palette */
-    --bcg-color: rgb(157, 200, 141);
+    --bcg-color: rgb(255, 255, 255);
     --text-color: rgb(0, 0, 0);
     --header-green: rgb(22, 74, 65);
     --main-green: rgb(217, 219, 198);
@@ -35,8 +35,10 @@
 }
 
 body {
-    background: var(--bcg-color);
     margin: 0 auto;
+    background-image: url("/images/bck_1.png"), url("/images/bcg_n.png");
+    background-size: contain;
+    background-repeat: no-repeat, repeat;
 }
 
 p, h1, h2, h3 {
@@ -49,7 +51,7 @@ a {
 }
 
 hr {
-    border: 1px solid var(--gray)
+    border: 1px solid var(--header-green)
 }
 
 .shadow {
@@ -72,56 +74,63 @@ ul {
 
 /*HEADER*/
 
-header {
+.header-logo {
+    display: flex;
+    height: 4em;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner-header {
+    padding: 0.5em 1.5em 1.5em 0.5em;
+    border-bottom-right-radius: 100%;
+    background: var(--header-green);
+
+}
+
+/*NAVIGATION*/
+
+.dropdown-btn {
+    display: flex;
+    border-radius: 50%;
+    transition: var(--delay-mid);
+    transform: rotate(90deg);
+}
+
+.dropdown-img {
+    height: 2em;
+}
+
+.nav-btn-border {
+    padding: 0.5em 0.5em 1em 1em;
+    border-bottom-left-radius: 100%;
     background: var(--header-green);
     position: relative;
     z-index: 2;
 }
 
-.header-wrapper {
-    padding: 1em;
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    place-items: center;
-}
-
-.logo-img img {
-    width: 4em;
-}
-
-/*NAVIGATION*/
-
-nav {
-    background: var(--nav-green);
-    z-index: 1;
+.nav-wrapper {
     position: absolute;
     width: 100%;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
     transition: var(--delay-mid);
-    transform: translateY(-100%);
+    background-image: url("/images/bck_1.png");
+    background-size: cover;
 }
 
-.nav-wrapper {
+.dropdown-nav {
+    position: relative;
     padding: 1em;
-    text-align: right;
-}
-
-/*DROPDOWN*/
-
-.nav-dropdown-button img{
-    height: 3em;
-}
-
-.nav-dropdown-button {
-    transition: var(--delay-mid);
-    display: flex;
+    z-index: 1;
+    margin-right: 4em;
 }
 
 /*MAIN*/
-
-body {
-    background: var(--bcg-color);
-}
 
 .main-wrapper {
     padding: 1em;
@@ -133,7 +142,6 @@ body {
     padding: calc(var(--offset));
     margin-left: calc(var(--offset) * -1);
     border-radius: 0.25em;
-    background: var(--nav-green);
 }
 
 /*SMOL IMG*/
@@ -186,7 +194,7 @@ body {
 .arrows-div {
     display: flex;
     justify-content: space-between;
-    position: relative;
+    position: absolute;
     top: 50%;
     transform: translateY(50%);
     z-index: 1;
@@ -200,4 +208,12 @@ body {
     background-image: url("/images/dropdown.png");
     transform: scale(0);
     /*TODO set the scale of arrows to 0 if there is only one img (js)*/
+}
+
+/*HOVER*/
+
+@media screen and (hover) {
+    .nav-btn-border:hover {
+        cursor: pointer;
+    }
 }
