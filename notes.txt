@@ -1,0 +1,11 @@
+na šolski spletni strani:
+    zgodovinski oris
+    mapa botaničnega --> link na spletno stran botanicnega
+
+botanicni:
+    ima shede,
+    mapa
+    slike
+    botanična sk/h?eda
+
+bo php; nrdi strukturo in database, mora dovoljevati dodajanje botaničnih shed

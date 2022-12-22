@@ -4,15 +4,18 @@ let isImgBig = false;
 function toggleNav() {
     let dropdown_btn = document.getElementById("dropdown-btn");
     let nav = document.getElementById("dropdown-nav");
+    let nav_bck = document.getElementById("nav-bck")
 
     if (isNavShown) {
         dropdown_btn.style = "transform: rotate(90deg);";
         nav.style = "transform: translateX(100%);";
+        nav_bck.style = "transform: translateX(-100%);";
 
         isNavShown = false;
     } else {
         dropdown_btn.style = "transform: rotate(-90deg);";
         nav.style = "transform: translateX(0%);";
+        nav_bck.style = "transform: translateX(0%);";
 
         isNavShown = true;
     }
