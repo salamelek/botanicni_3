@@ -34,3 +34,9 @@ function toggleImgSize(img_div=null) {
         isImgBig = true;
     }
 }
+
+function loadNav() {
+    // moves the nav, so it doesn't get broken ;-;
+    let nav = document.getElementById("dropdown-nav");
+    nav.style = "transform: translateX(100%);";
+}

@@ -39,6 +39,7 @@ body {
     background-image: url("../images/bcg_1.png"), url("../images/bcg_n.png");
     background-size: contain;
     background-repeat: no-repeat, repeat;
+    overflow-x: hidden;
 }
 
 p, h1, h2, h3 {
@@ -70,10 +71,6 @@ ul {
 
 .no-margin {
     margin: 0;
-}
-
-html {
-    overflow-x: hidden;
 }
 
 /*HEADER*/
@@ -121,7 +118,6 @@ html {
     width: 100%;
     right: 0;
     top: 0;
-    transform: translateX(100%);
     transition: var(--delay-mid);
     background-size: cover;
     background-attachment: fixed;
