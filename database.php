@@ -18,7 +18,7 @@ try {
 } catch (Exception $e) {
     // error code 1049 stands for "unknown database"
     if ($e->getCode() == 1049) {
-        $sql = "create database " . $dbname;
+        $sql = "CREATE DATABASE " . $dbname;
         if (mysqli_query($conn, $sql)) {
             // connect to the newly created database
             $conn->select_db($dbname);
@@ -30,25 +30,35 @@ try {
 }
 
 function create_db($conn): void {
-    $sql1 = "create table if not exists Plants (
-        id int primary key auto_increment,
-        nameLat char(255) not null,
-        nameSlo char(255),
-        nameIta char(255),
-        climaticZone char(255),
-        isAtSchool bool,
-        unique key (nameLat)
-    );";
+    try {
+        // the icon value will be a combinations of the icons (like the discord system)
+        $conn->query("
+            CREATE TABLE IF NOT EXISTS Plants (
+            id int primary key auto_increment,
+            imeLat char(255) not null,
+            imeSlo char(255),
+            imeIta char(255),
+            drugaImenaSlo text,
+            sorta char(255),
+            druzina char(255),
+            izvor text,
+            habitat text,
+            opis text,
+            zanimivosti text,
+            isAtSchool bool,
+            iconsCode int not null,
+            unique key (imeLat)
+        );");
 
-    $sql2 = "create table if not exists Users (
-        id int primary key auto_increment,
-        username char(255) not null,
-        pswHash char(255) not null,
-        isAdmin bool not null
-    )
-    ";
+        $conn->query("
+            CREATE TABLE IF NOT EXISTS Users (
+            id int primary key auto_increment,
+            username char(255) not null,
+            pswHash char(255) not null,
+            isAdmin bool not null
+        );");
 
-    if (!$conn->query($sql1)) {
-        echo "Error creating table 1: " . $conn->error . "<br>";
+    } catch (PDOException $e) {
+        echo "Error creating table: " . $e->getMessage();
     }
 }

@@ -3,8 +3,28 @@ na šolski spletni strani:
     mapa botaničnega --> link na spletno stran botanicnega
 
 botanicni:
-    shede
+    ima shede,
     mapa
     slike
+    botanična sk/h?eda
 
 bo php; nrdi strukturo in database, mora dovoljevati dodajanje botaničnih shed
+
+
+
+BOTANICNA SHEDA:
+lat, slo, ita ime
+druga imena (slo, ita)
+sorta, družina
+izvor
+rastišče / razmere za gojenje / razširjenost (habitat)
+opis:
+    generalno
+    steblo
+    listi
+    cvetovi
+zanimivosti:
+    učinkovine
+    uporaba
+    drugo
+ikonce (užitno, nevarno, zdravilno)
