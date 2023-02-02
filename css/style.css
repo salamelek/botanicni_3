@@ -34,14 +34,6 @@
     font-family: Alaska,sans-serif;
 }
 
-body {
-    margin: 0 auto;
-    background-image: url("../images/bcg_1.png"), url("../images/bcg_n.png");
-    background-size: contain;
-    background-repeat: no-repeat, repeat;
-    overflow-x: hidden;
-}
-
 p, h1, h2, h3 {
     color: var(--text-color);
 }
@@ -61,12 +53,6 @@ hr {
 
 .shadow-light {
     box-shadow: 0 0.22em 1em var(--shadow-color-light);
-}
-
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .no-margin {

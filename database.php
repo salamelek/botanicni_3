@@ -114,3 +114,31 @@ function create_db($conn): void {
         echo "Error creating table: " . $e->getMessage();
     }
 }
+
+function is_admin($username): bool {
+    global $conn;
+
+    $sql = "select isAdmin from Users
+        where username = '$username';
+    ";
+
+    $result = mysqli_query($conn, $sql) or die("cannot see if user is admin");
+    $rows = mysqli_fetch_assoc($result);
+    return $rows["isAdmin"];
+}
+
+function get_plant_assoc($plantId=null, $plantLatName=null): ?array {
+    global $conn;
+
+    $sql = "select * from Plants
+        where id = '$plantId'
+        or imeLat = '$plantLatName';
+    ";
+
+    $result = mysqli_query($conn, $sql) or die("cannot get plant data");
+    if (mysqli_num_rows($result)) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return null;
+    }
+}
