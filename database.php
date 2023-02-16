@@ -142,3 +142,17 @@ function get_plant_assoc($plantId=null, $plantLatName=null): ?array {
         return null;
     }
 }
+
+function check_credentials($usr, $psw): bool {
+    global $conn;
+
+    $sql = "
+        SELECT * 
+        FROM Users 
+        WHERE username= '$usr' 
+        AND pswHash= '" . md5($psw) . "';
+    ";
+    $result = mysqli_query($conn, $sql) or die("error while checking credentials");
+
+    return true;
+}
