@@ -11,6 +11,8 @@ if (isset($_POST["login-password"]) and isset($_POST["login-username"])) {
     }
 
     $_SESSION["username"] = $usr;
+
+    echo "yay";
 }
 ?>
 

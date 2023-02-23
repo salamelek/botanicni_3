@@ -143,6 +143,14 @@ function get_plant_assoc($plantId=null, $plantLatName=null): ?array {
     }
 }
 
+
+/**
+ * @param $usr
+ * @param $psw
+ * @return bool
+ * 
+ * Checks if a pair of username and password checks out
+ */
 function check_credentials($usr, $psw): bool {
     global $conn;
 
@@ -154,5 +162,9 @@ function check_credentials($usr, $psw): bool {
     ";
     $result = mysqli_query($conn, $sql) or die("error while checking credentials");
 
-    return true;
+    if (mysqli_num_rows($result) == 1) {
+        return true;
+    } else {
+        return false;
+    }
 }
