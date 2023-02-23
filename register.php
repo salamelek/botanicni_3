@@ -10,16 +10,11 @@ if (isset($_REQUEST["username"])) {
 
     $username = mysqli_real_escape_string($conn, stripslashes($_POST["username"]));
     $password = mysqli_real_escape_string($conn, stripslashes($_POST["password"]));
-    $isAdmin = mysqli_real_escape_string($conn, stripslashes($_POST["is-admin"]));
-
-    $isAdminBool = false;
-    if ($isAdmin == "on") {
-        $isAdminBool = true;
-    }
+    $isAdmin = isset($_POST["is-admin"]) ? 1 : 0;
 
     $sql = "
     INSERT into Users (username, pswHash, isAdmin)
-    VALUES ('$username', '" . md5($password) . "', '$isAdminBool');
+    VALUES ('$username', '" . md5($password) . "', '$isAdmin');
     ";
 
     try {
