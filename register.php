@@ -1,6 +1,9 @@
 <?php
 include "./modules/head.php";
 include "./modules/nav.php";
+
+// TODO session instead of post
+$_POST["result-msg"] = "";
 ?>
 
 <main>
@@ -18,9 +21,11 @@ include "./modules/nav.php";
             <label for="admin-password">Geslo za urejevalca: </label>
             <input type="password" id="admin-password" name="admin-password">
         </div>
-        <br>
         <input type="submit" value="Oddaj">
     </form>
+    <div>
+        <p><?php echo $_POST["result-msg"] ?></p>
+    </div>
 </main>
 <script>
     let adminCheckbox = document.getElementById("is-admin");

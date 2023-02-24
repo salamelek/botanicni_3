@@ -15,7 +15,8 @@ if (isset($_REQUEST["username"])) {
         if ($adminPswInput == $adminPsw) {
             $isAdmin = 1;
         } else {
-            echo "Zgrešeno geslo urejevalca!";
+            $_SESSION["result-msg"] = "Zgrešeno geslo urejevalca!";
+            header("Location: ../register.php");
             return;
         }
     }
