@@ -1,9 +1,6 @@
 <?php
 include "./modules/head.php";
 include "./modules/nav.php";
-
-// TODO session instead of post
-$_POST["result-msg"] = "";
 ?>
 
 <main>
@@ -24,7 +21,15 @@ $_POST["result-msg"] = "";
         <input type="submit" value="Oddaj">
     </form>
     <div>
-        <p><?php echo $_POST["result-msg"] ?></p>
+        <p>
+            <?php
+            if (isset($_SESSION["result-msg"])) {
+                echo "msg: " . $_SESSION["result-msg"];
+            } else {
+                echo "Session msg not set!";
+            }
+            ?>
+        </p>
     </div>
 </main>
 <script>
