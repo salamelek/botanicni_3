@@ -1,23 +1,5 @@
-<?php
-require "database.php";
-
-if (isset($_POST["login-password"]) and isset($_POST["login-username"])) {
-    $usr = $_POST["login-username"];
-    $psw = $_POST["login-password"];
-
-    if (!check_credentials($usr, $psw)) {
-        echo "wrong credentials!";
-        return;
-    }
-
-    $_SESSION["username"] = $usr;
-
-    echo "yay";
-}
-?>
-
 <main>
-    <form action="" method="post">
+    <form action="./actions/login_action.php" method="post">
         <label for="login-usr">uporabniško ime: </label>
         <input id="login-usr" name="login-username" type="text" required>
         <br>
@@ -26,4 +8,14 @@ if (isset($_POST["login-password"]) and isset($_POST["login-username"])) {
         <br>
         <input type="submit" value="Log in">
     </form>
+    <div>
+        <p>
+            <?php
+            if (isset($_SESSION["action-result-msg"])) {
+                echo $_SESSION["action-result-msg"];
+                unset($_SESSION["action-result-msg"]);
+            }
+            ?>
+        </p>
+    </div>
 </main>

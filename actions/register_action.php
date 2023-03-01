@@ -1,6 +1,8 @@
 <?php
 require "../database.php";
 
+session_start();
+
 
 $adminPsw = "testpsw";
 
@@ -15,7 +17,7 @@ if (isset($_REQUEST["username"])) {
         if ($adminPswInput == $adminPsw) {
             $isAdmin = 1;
         } else {
-            $_SESSION["result-msg"] = "Zgrešeno geslo urejevalca!";
+            $_SESSION["action-result-msg"] = "Zgrešeno geslo urejevalca!";
             header("Location: ../register.php");
             return;
         }
@@ -31,9 +33,11 @@ if (isset($_REQUEST["username"])) {
     } catch (Exception $e) {
         // error code 1049 stands for "duplicate entry"
         if ($e->getCode() == 1062) {
-            echo "<script type='text/javascript'>alert('Uporabniško ime " . $username . " je že uporabljeno!');</script>";
+            $_SESSION["action-result-msg"] = "Uporabniško ime '" . $username . "' je že uporabljeno!";
         } else {
-            echo "Napaka! In sicer sledeča:<br>" . $e;
+            $_SESSION["action-result-msg"] = "Prišlo je do napake:<br>" . $e;
         }
+        header("Location: ../register.php");
+        return;
     }
 }

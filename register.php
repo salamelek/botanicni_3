@@ -1,10 +1,12 @@
 <?php
 include "./modules/head.php";
 include "./modules/nav.php";
+
+session_start();
 ?>
 
 <main>
-    <form action="./modules/register_action.php" method="post">
+    <form action="actions/register_action.php" method="post">
         <label for="username">Uporabniško ime: </label>
         <input type="text" id="username" name="username" maxlength="255" required>
         <br>
@@ -20,13 +22,12 @@ include "./modules/nav.php";
         </div>
         <input type="submit" value="Oddaj">
     </form>
-    <div>
+    <div class="action-result-msg">
         <p>
             <?php
-            if (isset($_SESSION["result-msg"])) {
-                echo "msg: " . $_SESSION["result-msg"];
-            } else {
-                echo "Session msg not set!";
+            if (isset($_SESSION["action-result-msg"])) {
+                echo $_SESSION["action-result-msg"];
+                unset($_SESSION["action-result-msg"]);
             }
             ?>
         </p>
