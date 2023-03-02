@@ -27,34 +27,34 @@ include "./modules/nav.php";
 
         <form action="./actions/editing_from_action.php" method="post">
             <label for="ime-lat">Latinsko ime: </label>
-            <input type="text" id="ime-lat" name="ime-lat">
+            <input type="text" id="ime-lat" name="ime-lat" value="">
             <br>
             <label for="ime-slo">Slovensko ime: </label>
-            <input type="text" id="ime-slo" name="ime-slo">
+            <input type="text" id="ime-slo" name="ime-slo" value="">
             <br>
             <label for="ime-ita">Italijansko ime: </label>
-            <input type="text" id="ime-ita" name="ime-ita">
+            <input type="text" id="ime-ita" name="ime-ita" value="">
             <br>
             <label for="druga-imena-slo">Druga slovenska imena: </label>
-            <input type="text" id="druga-imena-slo" name="druga-imena-slo">
+            <input type="text" id="druga-imena-slo" name="druga-imena-slo" value="">
             <br>
             <label for="sorta">Sorta: </label>
-            <input type="text" id="sorta" name="sorta">
+            <input type="text" id="sorta" name="sorta" value="">
             <br>
             <label for="druzina">Družina: </label>
-            <input type="text" id="druzina" name="druzina">
+            <input type="text" id="druzina" name="druzina" value="">
             <br>
             <label for="izvor">Izvor: </label>
-            <input type="text" id="izvor" name="izvor">
+            <input type="text" id="izvor" name="izvor" value="">
             <br>
             <label for="habitat">Habitat: </label>
-            <input type="text" id="habitat" name="habitat">
+            <input type="text" id="habitat" name="habitat" value="">
             <br>
             <label for="opis">Opis: </label>
-            <input type="text" id="opis" name="opis">
+            <input type="text" id="opis" name="opis" value="">
             <br>
             <label for="zanimivosti">Zanimivosti: </label>
-            <input type="text" id="zanimivosti" name="zanimivosti">
+            <input type="text" id="zanimivosti" name="zanimivosti" value="">
             <br>
             <label for="is-at-school">Se nahaja na šoli: </label>
             <input type="checkbox" id="is-at-school" name="is-at-school">
