@@ -1,5 +1,5 @@
 <nav>
-    <div>
+    <div class="inner-nav">
         navigation
     </div>
 </nav>

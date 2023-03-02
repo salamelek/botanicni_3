@@ -12,14 +12,17 @@ if (!isset($_GET["plant"])) {
 
 
 $plantInfo = get_plant_assoc(plantLatName: $_GET["plant"]);
-
-if (!$plantInfo) {
-    echo "no such plant found";
-    return;
-}
 ?>
 
 <main>
-    <?php print_r($plantInfo); ?>
+    <div class="main-wrapper">
+        <?php
+        if (!$plantInfo) {
+            echo "Te rastline ni v podatkovni bazi.";
+            return;
+        }
+        print_r($plantInfo);
+        ?>
+    </div>
 </main>
 

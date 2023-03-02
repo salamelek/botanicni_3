@@ -34,6 +34,10 @@
     font-family: Alaska,sans-serif;
 }
 
+body {
+    margin: 0 auto;
+}
+
 p, h1, h2, h3 {
     color: var(--text-color);
 }
@@ -57,4 +61,36 @@ hr {
 
 .no-margin {
     margin: 0;
+}
+
+/*NAVIGATION*/
+
+nav {
+    background-color: #74946b;
+}
+
+.inner-nav {
+    display: flex;
+    justify-content: center;
+}
+
+/*MAIN*/
+
+
+main {
+}
+
+.main-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+/*ADMINS PAGE*/
+
+.editing-options-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    grid-gap: 1em;
 }
