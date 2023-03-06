@@ -1,6 +1,6 @@
 <?php
-require "database.php";
 require "auth_session.php";
+require "database.php";
 
 include "./modules/head.php";
 include "./modules/nav.php";

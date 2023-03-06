@@ -169,11 +169,42 @@ function check_credentials($usr, $psw): bool {
     }
 }
 
-function add_plant($plantAssoc): void {
+function add_or_edit_plant($plantAssoc): void {
     global $conn;
 
     $sql = "
-        INSERT INTO Plants (imeLat, imeSlo, imeIta, drugaImenaSlo, sorta, druzina, izvor, habitat, opis, zanimivosti, isAtSchool)
-        VALUES ('" . $plantAssoc["imeLat"] . "', '" . $plantAssoc["imeSlo"] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "')
+        SELECT id
+        FROM Plants
+        WHERE imeLat = '" . $plantAssoc["imeLat"] . "'
     ";
+    $result = mysqli_query($conn, $sql) or die("could not fetch plant data");
+
+    if (mysqli_num_rows($result) == 0) {
+        $sql = "
+            INSERT INTO Plants (imeLat, imeSlo, imeIta, drugaImenaSlo, sorta, druzina, izvor, habitat, opis, zanimivosti, isAtSchool)
+            VALUES ('" . $plantAssoc["imeLat"] . "', '" . $plantAssoc["imeSlo"] . "', '" . $plantAssoc["imeIta"] . "', '" . $plantAssoc["drugaImenaSlo"] . "', '" . $plantAssoc["sorta"] . "', '" . $plantAssoc["druzina"] . "', '" . $plantAssoc["izvor"] . "', '" . $plantAssoc["habitat"] . "', '" . $plantAssoc["opis"] . "', '" . $plantAssoc["zanimivosti"] . "', '" . $plantAssoc["isAtSchool"] . "')
+        ";
+    } else if (mysqli_num_rows($result) == 1) {
+        $sql = "
+            UPDATE Plants
+            SET 
+                imeLat = '" . $plantAssoc["imeLat"] . "', 
+                imeSlo = '" . $plantAssoc["imeSlo"] . "',
+                imeIta = '" . $plantAssoc["imeIta"] . "', 
+                drugaImenaSlo = '" . $plantAssoc["drugaImenaSlo"] . "',
+                sorta = '" . $plantAssoc["sorta"] . "',
+                druzina = '" . $plantAssoc["druzina"] . "', 
+                izvor = '" . $plantAssoc["izvor"] . "',
+                habitat = '" . $plantAssoc["habitat"] . "',
+                opis = '" . $plantAssoc["opis"] . "',
+                zanimivosti = '" . $plantAssoc["zanimivosti"] . "',
+                isAtSchool = '" . $plantAssoc["isAtSchool"] . "'
+            WHERE imeLat = '" . $plantAssoc["imeLat"] . "'
+        ";
+    } else {
+        trigger_error("ayo wtf");
+        exit();
+    }
+
+    mysqli_query($conn, $sql) or die("Prišlo je do napake dodajanja podatkov rastline");
 }
