@@ -168,3 +168,12 @@ function check_credentials($usr, $psw): bool {
         return false;
     }
 }
+
+function add_plant($plantAssoc): void {
+    global $conn;
+
+    $sql = "
+        INSERT INTO Plants (imeLat, imeSlo, imeIta, drugaImenaSlo, sorta, druzina, izvor, habitat, opis, zanimivosti, isAtSchool)
+        VALUES ('" . $plantAssoc["imeLat"] . "', '" . $plantAssoc["imeSlo"] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "', '" . $plantAssoc[""] . "')
+    ";
+}
