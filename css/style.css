@@ -10,7 +10,6 @@
     /*color palette */
     --bcg-color: rgb(255, 255, 255);
     --text-color: rgb(0, 0, 0);
-    --header-green: rgb(22, 74, 65);
     --main-green: rgb(217, 219, 198);
     --nav-green: rgb(77, 119, 78);
     --shadow-color: rgb(0, 0, 0, 0.3);
@@ -48,7 +47,7 @@ a {
 }
 
 hr {
-    border: 1px solid var(--header-green)
+    border: 1px solid var(--text-color)
 }
 
 .shadow {
@@ -60,7 +59,7 @@ hr {
 }
 
 .no-margin {
-    margin: 0;
+    margin: 0 auto;
 }
 
 /*NAVIGATION*/
@@ -72,6 +71,24 @@ nav {
 .inner-nav {
     display: flex;
     justify-content: center;
+    padding: 1em;
+}
+
+.nav-links-space {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nice-link {
+    margin: 0 1em 0 1em;
+    transition: var(--delay-short) ease;
+}
+
+.nice-link:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+    transition: var(--delay-short) ease;
 }
 
 /*MAIN*/
@@ -93,4 +110,12 @@ main {
     grid-template-columns: auto auto;
     justify-content: space-evenly;
     grid-gap: 1em;
+}
+
+/*PLANT*/
+
+.plant-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

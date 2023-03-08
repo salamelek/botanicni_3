@@ -169,6 +169,7 @@ function check_credentials($usr, $psw): bool {
     }
 }
 
+
 function add_or_edit_plant($plantAssoc): void {
     global $conn;
 
@@ -207,4 +208,26 @@ function add_or_edit_plant($plantAssoc): void {
     }
 
     mysqli_query($conn, $sql) or die("Prišlo je do napake dodajanja podatkov rastline");
+}
+
+
+function get_n_plants($n, $offset): array {
+    global $conn;
+    $n = 10;
+    $sql = "
+        SELECT imeLat
+        FROM Plants
+        LIMIT $n
+        OFFSET $offset;
+    ";
+
+    $result = mysqli_query($conn, $sql);
+    $rows = array();
+
+    // Loop through the result set and add each row to the array
+    while ($row = mysqli_fetch_array($result)) {
+        $rows[] = $row["imeLat"];
+    }
+
+    return $rows;
 }
