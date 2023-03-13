@@ -27,6 +27,19 @@ include "./modules/nav.php";
         }
 
         $plantDataAssoc = get_plant_assoc($_GET["plant"]);
+
+        if (!isset($plantDataAssoc)) {
+            if ($_GET["plant"] != "new") {
+                echo '
+                    <h3>Ustvari novo rastlino ' . $_GET["plant"] . '</h3>
+                ';
+            } else {
+                echo '
+                    <h3>nova rastlina</h3>
+                ';
+            }
+
+        }
         ?>
 
         <form action="./actions/editing_from_action.php" method="post">
