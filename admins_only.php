@@ -4,9 +4,6 @@ require "database.php";
 
 include "./modules/head.php";
 include "./modules/nav.php";
-
-// ?plant=new
-// ?plant=Testus%20plantis
 ?>
 
 <main>
@@ -29,7 +26,7 @@ include "./modules/nav.php";
             return;
         }
 
-        $plantDataAssoc = get_plant_assoc(plantLatName: $_GET["plant"]);
+        $plantDataAssoc = get_plant_assoc($_GET["plant"]);
         ?>
 
         <form action="./actions/editing_from_action.php" method="post">

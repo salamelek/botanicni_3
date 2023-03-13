@@ -29,6 +29,7 @@ try {
     }
 }
 
+
 function create_db($conn): void {
     try {
         // the icon value will be a combinations of the icons (like the discord system)
@@ -127,12 +128,12 @@ function is_admin($username): bool {
     return $rows["isAdmin"];
 }
 
-function get_plant_assoc($plantId=null, $plantLatName=null): ?array {
+function get_plant_assoc($plantLatName=null, $plantId=null): ?array {
     global $conn;
 
     $sql = "select * from Plants
-        where id = '$plantId'
-        or imeLat = '$plantLatName';
+        where imeLat = '$plantLatName'
+        or id = '$plantId';
     ";
 
     $result = mysqli_query($conn, $sql) or die("cannot get plant data");
