@@ -21,6 +21,7 @@ include "./modules/nav.php";
             return;
         }
 
+
         if ($_GET["plant"] == "search") {
             include "./modules/search_plant.php";
             return;
@@ -35,7 +36,7 @@ include "./modules/nav.php";
                 ';
             } else {
                 echo '
-                    <h3>nova rastlina</h3>
+                    <h3>Nova rastlina</h3>
                 ';
             }
 
@@ -76,6 +77,9 @@ include "./modules/nav.php";
             <label for="is-at-school">Se nahaja na šoli: </label>
             <input type="checkbox" id="is-at-school" name="is-at-school" <?php if (isset($plantDataAssoc) && $plantDataAssoc["isAtSchool"] == 1) {echo "checked";} ?>>
             <br>
+            <label>
+                <input type="number" name="oldId" value="<?php echo $plantDataAssoc["id"] ?>" hidden>
+            </label>
             <input type="submit" value="Oddaj">
         </form>
     </div>

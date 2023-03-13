@@ -177,7 +177,7 @@ function add_or_edit_plant($plantAssoc): void {
     $sql = "
         SELECT id
         FROM Plants
-        WHERE imeLat = '" . $plantAssoc["imeLat"] . "'
+        WHERE id = '" . $plantAssoc["oldId"] . "'
     ";
     $result = mysqli_query($conn, $sql) or die("could not fetch plant data");
 
@@ -201,7 +201,7 @@ function add_or_edit_plant($plantAssoc): void {
                 opis = '" . $plantAssoc["opis"] . "',
                 zanimivosti = '" . $plantAssoc["zanimivosti"] . "',
                 isAtSchool = '" . $plantAssoc["isAtSchool"] . "'
-            WHERE imeLat = '" . $plantAssoc["imeLat"] . "'
+            WHERE id = '" . $plantAssoc["oldId"] . "'
         ";
     } else {
         trigger_error("ayo wtf");

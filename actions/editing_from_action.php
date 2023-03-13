@@ -17,7 +17,8 @@ if (isset($_POST["ime-lat"])) {
             "habitat"       => mysqli_real_escape_string($conn, stripslashes($_POST["habitat"] ?? "")),
             "opis"          => mysqli_real_escape_string($conn, stripslashes($_POST["opis"] ?? "")),
             "zanimivosti"   => mysqli_real_escape_string($conn, stripslashes($_POST["zanimivosti"] ?? "")),
-            "isAtSchool"    => isset($_POST["is-at-school"]) ? 1 : 0
+            "isAtSchool"    => isset($_POST["is-at-school"]) ? 1 : 0,
+            "oldId"         => mysqli_real_escape_string($conn, stripslashes($_POST["oldId"]))
         ]
     );
 }
