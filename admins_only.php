@@ -82,5 +82,11 @@ include "./modules/nav.php";
             </label>
             <input type="submit" value="Oddaj">
         </form>
+        <form action="./actions/delete_plant_action.php" method="post">
+            <input type="submit" name="delete-plant" value="Izbriši">
+            <label>
+                <input type="number" name="oldId" value="<?php echo $plantDataAssoc["id"] ?>" hidden>
+            </label>
+        </form>
     </div>
 </main>

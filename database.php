@@ -232,3 +232,16 @@ function get_n_plants($n, $offset): array {
 
     return $rows;
 }
+
+
+function delete_plant($imeLat=null, $id=null): void {
+    global $conn;
+
+    $sql = "
+        DELETE FROM Plants
+        WHERE imeLat = '$imeLat'
+        OR id = '$id';
+    ";
+
+    mysqli_query($conn, $sql) or die("could not delete plant");
+}
