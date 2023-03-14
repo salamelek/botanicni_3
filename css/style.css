@@ -119,3 +119,17 @@ main {
     justify-content: space-between;
     align-items: center;
 }
+
+/*PLANT LIST*/
+
+.plant-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*ICONS*/
+
+.icon {
+    height: 1em;
+}

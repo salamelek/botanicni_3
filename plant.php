@@ -23,7 +23,7 @@ $plantInfo = get_plant_assoc($_GET["plant"]);
         ?>
         <div class="plant-title">
             <h1><?php echo $plantInfo["imeLat"]; ?></h1>
-            <a href="./admins_only.php?plant=<?php echo $plantInfo["imeLat"]; ?>" class="nice-link">Uredi</a>
+            <a href="./admins_only.php?plant=<?php echo $plantInfo["imeLat"]; ?>" class="nice-link">Uredi <img class="icon" src="images/pencil_icon.png" alt="icon"></a>
         </div>
         <hr>
         <h4>Slovensko ime: </h4>

@@ -19,8 +19,10 @@ $plantList = get_n_plants(100, 0);
             <?php
             foreach ($plantList as $plant) {
                 echo '
-                    <a href="./plant.php?plant=' . $plant . '">' . $plant . '</a>
-                    <br>
+                    <div class="plant-link">
+                        <a href="./plant.php?plant=' . $plant . '">' . $plant . '</a>
+                        <a href="./admins_only.php?plant=' . $plant . '"><p><img class="icon" src="images/pencil_icon.png" alt="icon"></p></a>
+                    </div>
                 ';
             }
             ?>
