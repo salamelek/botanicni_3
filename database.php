@@ -214,7 +214,7 @@ function add_or_edit_plant($plantAssoc): void {
 
 function get_n_plants($n, $offset): array {
     global $conn;
-    $n = 10;
+
     $sql = "
         SELECT imeLat
         FROM Plants

@@ -1,6 +1,6 @@
-na šolski spletni strani:
+Na šolski spletni strani:
     zgodovinski oris
-    mapa botaničnega --> link na spletno stran botanicnega
+    mapa botaničnega --> link na spletno stran botaničnega
 
 botanicni:
     ima shede,
@@ -8,7 +8,7 @@ botanicni:
     slike
     botanična sk/h?eda
 
-bo php; nrdi strukturo in database, mora dovoljevati dodajanje botaničnih shed
+Bo php; naredi strukturo in database, mora dovoljevati dodajanje botaničnih shed
 
 
 
@@ -27,4 +27,4 @@ zanimivosti:
     učinkovine
     uporaba
     drugo
-ikonce (užitno, nevarno, zdravilno)
+ikone (užitno, nevarno, zdravilno)
