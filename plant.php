@@ -4,6 +4,8 @@ require "./database.php";
 include "./modules/head.php";
 include "./modules/nav.php";
 
+session_start();
+
 
 if (!isset($_GET["plant"])) {
     include "./modules/search_plant.php";
@@ -22,8 +24,12 @@ $plantInfo = get_plant_assoc($_GET["plant"]);
         }
         ?>
         <div class="plant-title">
-            <h1><?php echo $plantInfo["imeLat"]; ?></h1>
-            <a href="./admins_only.php?plant=<?php echo $plantInfo["imeLat"]; ?>" class="nice-link">Uredi <img class="icon" src="images/pencil_icon.png" alt="icon"></a>
+            <h1><i><?php echo $plantInfo["imeLat"]; ?></i></h1>
+            <?php
+            if (isset($_SESSION["username"]) && is_admin($_SESSION["username"])) {
+                echo '<a href="./admins_only.php?plant=' . $plantInfo["imeLat"] . ' class="nice-link">Uredi <img class="icon" src="images/pencil_icon.png" alt="icon"></a>';
+            }
+            ?>
         </div>
         <hr>
         <h4>Slovensko ime: </h4>

@@ -6,31 +6,40 @@ session_start();
 ?>
 
 <main>
-    <form action="actions/register_action.php" method="post">
-        <label for="username">Uporabniško ime: </label>
-        <input type="text" id="username" name="username" maxlength="255" required>
-        <br>
-        <label for="password">Geslo: </label>
-        <input id="password" name="password" type="password" maxlength="255" required>
-        <br>
-        <label for="is-admin">Hočem biti urejevalec: </label>
-        <input type="checkbox" id="is-admin" name="is-admin" value="0">
-        <br>
-        <div id="admin-password-id" hidden>
-            <label for="admin-password">Geslo za urejevalca: </label>
-            <input type="password" id="admin-password" name="admin-password">
+    <div class="main-wrapper">
+        <form action="actions/register_action.php" method="post">
+            <div class="login-form-input">
+                <label for="username">Uporabniško ime: </label>
+                <input type="text" id="username" name="username" maxlength="255" required>
+            </div>
+            <hr>
+            <div class="login-form-input">
+                <label for="password">Geslo: </label>
+                <input id="password" name="password" type="password" maxlength="255" required>
+            </div>
+            <hr>
+            <label for="is-admin">Hočem biti urejevalec: </label>
+            <input type="checkbox" id="is-admin" name="is-admin" value="0">
+            <br>
+            <div id="admin-password-id" hidden>
+                <div class="login-form-input">
+                    <label for="admin-password">Geslo za urejevalca: </label>
+                    <input type="password" id="admin-password" name="admin-password">
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Oddaj">
+        </form>
+        <div class="action-result-msg">
+            <p>
+                <?php
+                if (isset($_SESSION["action-result-msg"])) {
+                    echo $_SESSION["action-result-msg"];
+                    unset($_SESSION["action-result-msg"]);
+                }
+                ?>
+            </p>
         </div>
-        <input type="submit" value="Oddaj">
-    </form>
-    <div class="action-result-msg">
-        <p>
-            <?php
-            if (isset($_SESSION["action-result-msg"])) {
-                echo $_SESSION["action-result-msg"];
-                unset($_SESSION["action-result-msg"]);
-            }
-            ?>
-        </p>
     </div>
 </main>
 <script>

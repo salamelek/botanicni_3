@@ -123,13 +123,29 @@ main {
 /*PLANT LIST*/
 
 .plant-link {
+    position: relative;
+}
+
+.plant-link-editing {
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /*ICONS*/
 
 .icon {
     height: 1em;
+}
+
+/*LOGIN*/
+
+.login-form-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
