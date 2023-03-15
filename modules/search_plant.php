@@ -21,13 +21,13 @@
     function addValues() {
         // Filter list of words based on user input
         let filteredWords = plantsList.filter(function(word) {
-            return word.startsWith(searchBar.value);
+            return word.startsWith(searchBar.value.toLowerCase());
         });
 
         plantsDataList.innerHTML = '';
         filteredWords.forEach(function(word) {
             let option = document.createElement('option');
-            option.value = word;
+            option.value = word.toLowerCase();
             plantsDataList.appendChild(option);
         });
     }
