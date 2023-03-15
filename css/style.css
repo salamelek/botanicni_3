@@ -75,19 +75,18 @@ nav {
 }
 
 .nav-links-space {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    gap: 2em;
+    grid-auto-flow: column;
 }
 
 .nice-link {
-    margin: 0 1em 0 1em;
     transition: var(--delay-short) ease;
 }
 
 .nice-link:hover {
     text-decoration: underline;
-    transform: scale(1.1);
+    /*font-size: 110%;*/
     transition: var(--delay-short) ease;
 }
 

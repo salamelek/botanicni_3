@@ -22,7 +22,7 @@ $plantList = get_n_plants(100, 0);
             foreach ($plantList as $plant) {
                 echo '
                     <div class="plant-link">
-                        <a href="./plant.php?plant=' . $plant . '"><p>' . $plant . '</p></a>
+                        <a href="./plant.php?plant=' . $plant . '" class="nice-link"><p>' . $plant . '</p></a>
                 ';
 
                 if (isset($_SESSION["username"]) && is_admin($_SESSION["username"])) {

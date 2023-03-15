@@ -10,7 +10,7 @@ session_start();
         <form action="./actions/login_action.php" method="post">
             <div class="login-form-input">
                 <label for="login-usr">Uporabniško ime: </label>
-                <input id="login-usr" name="login-username" type="text" required>
+                <input id="login-usr" name="login-username" type="text" required autofocus>
             </div>
             <hr>
             <div class="login-form-input">
