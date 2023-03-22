@@ -52,6 +52,17 @@ $plantInfo = get_plant_assoc($_GET["plant"]);
         <?php echo $plantInfo["zanimivosti"]; ?>
         <h4>Ali jo imamo na šoli: </h4>
         <?php echo $plantInfo["isAtSchool"] ? "Da" : "Ne"; ?>
+
+        <div class="img-gallery">
+            <div class="inner-img-gallery">
+                <div class="gallery-img-frame">
+                    <img src="./images/logo.png" alt="lepa slikca">
+                </div>
+                <div class="gallery-img-frame">
+                    <img src="./images/logo.png" alt="lepa slikca">
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 

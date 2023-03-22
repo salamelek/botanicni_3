@@ -43,7 +43,7 @@ include "./modules/nav.php";
         }
         ?>
 
-        <form action="./actions/editing_from_action.php" method="post">
+        <form action="./actions/editing_from_action.php" method="post" enctype="multipart/form-data">
             <label for="ime-lat">Latinsko ime: </label>
             <input type="text" id="ime-lat" name="ime-lat" value="<?php echo $plantDataAssoc["imeLat"] ?? ""?>" required>
             <br>
@@ -76,6 +76,9 @@ include "./modules/nav.php";
             <br>
             <label for="is-at-school">Se nahaja na šoli: </label>
             <input type="checkbox" id="is-at-school" name="is-at-school" <?php if (isset($plantDataAssoc) && $plantDataAssoc["isAtSchool"] == 1) {echo "checked";} ?>>
+            <br>
+            <label for="upload-images">Dodaj slike:</label>
+            <input type="file" multiple="multiple" id="upload-images" name="imagesUpload[]">
             <br>
             <label>
                 <input type="number" name="oldId" value="<?php echo $plantDataAssoc["id"] ?>" hidden>

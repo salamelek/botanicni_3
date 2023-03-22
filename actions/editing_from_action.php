@@ -1,6 +1,8 @@
 <?php
 require "../database.php";
-global $conn;
+
+
+$images_path = "../images/plants/";
 
 session_start();
 
@@ -22,6 +24,22 @@ if (isset($_POST["ime-lat"])) {
             "oldId"         => mysqli_real_escape_string($conn, stripslashes($_POST["oldId"]))
         ]
     );
+
+    // save images
+    $files = array_filter($_FILES["imagesUpload"]["name"]);
+    foreach ($files as $file) {
+        // create directory
+        if (!file_exists(($images_path . $_POST["ime-lat"]))) {
+            mkdir($images_path . $_POST["ime-lat"]);
+        }
+
+        // check if file already exists
+        // limit file size
+        // limit file type
+
+        // upload file
+        move_uploaded_file($_FILES["imagesUpload"]["name"], $target_file)
+    }
 }
 
-header("Location: ../admins_only.php");
+//header("Location: ../admins_only.php");
