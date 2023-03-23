@@ -26,20 +26,32 @@ if (isset($_POST["ime-lat"])) {
     );
 
     // save images
-    $files = array_filter($_FILES["imagesUpload"]["name"]);
-    foreach ($files as $file) {
+    print_r($_FILES["imagesUpload"]);
+
+    for($i=0; $i < count($_FILES['imagesUpload']['name']); $i++) {
+        $target_dir = $images_path . $_POST["ime-lat"];
+        $target_file = $target_dir . "/" . $_FILES['imagesUpload']['name'][$i];
+
         // create directory
-        if (!file_exists(($images_path . $_POST["ime-lat"]))) {
+        if (!file_exists($target_dir)) {
             mkdir($images_path . $_POST["ime-lat"]);
         }
 
         // check if file already exists
-        // limit file size
-        // limit file type
 
-        // upload file
-        move_uploaded_file($_FILES["imagesUpload"]["name"], $target_file)
+        // limit file size
+
+        // limit file type
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // move file from temp to directory
+        $tmp_files = $_FILES["imagesUpload"]["tmp_name"];
+        move_uploaded_file($tmp_files[$i], $target_file);
     }
 }
 
-//header("Location: ../admins_only.php");
+header("Location: ../admins_only.php");

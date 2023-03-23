@@ -55,12 +55,22 @@ $plantInfo = get_plant_assoc($_GET["plant"]);
 
         <div class="img-gallery">
             <div class="inner-img-gallery">
-                <div class="gallery-img-frame">
-                    <img src="./images/logo.png" alt="lepa slikca">
-                </div>
-                <div class="gallery-img-frame">
-                    <img src="./images/logo.png" alt="lepa slikca">
-                </div>
+                <?php
+                $dirName = "./images/plants/" . $plantInfo["imeLat"] . "/";
+                $dir = new DirectoryIterator($dirName);
+
+                foreach ($dir as $fileInfo) {
+                    if (!$fileInfo->isDot()) {
+                        $fileName = $fileInfo->getFilename();
+
+                        echo ' 
+                            <div class="gallery-img-frame">
+                                <img src="' . $dirName . $fileName . '" alt="lepa slikca">
+                            </div>
+                        ';
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
