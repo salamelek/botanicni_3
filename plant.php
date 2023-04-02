@@ -13,6 +13,9 @@ if (!isset($_GET["plant"])) {
 }
 
 $plantInfo = get_plant_assoc($_GET["plant"]);
+$dirName = "./images/plants/" . $plantInfo["imeLat"] . "/";
+$dir = new DirectoryIterator($dirName);
+$fileCount = count(glob($dirName . "*"));
 ?>
 
 <main>
@@ -31,7 +34,49 @@ $plantInfo = get_plant_assoc($_GET["plant"]);
             }
             ?>
         </div>
+        <hr <?php if ($fileCount == 0) {echo "hidden";} ?>>
+
+        <div class="img-gallery" id="img-gallery" <?php if ($fileCount == 0) {echo "hidden";} ?>>
+            <div class="inner-img-gallery" id="inner-img-gallery">
+                <?php
+                foreach ($dir as $fileInfo) {
+                    if (!$fileInfo->isDot() && !$fileInfo->isDir()) {
+                        $fileName = $fileInfo->getFilename();
+
+                        echo ' 
+                            <div class="gallery-img-frame border">
+                                <img src="' . $dirName . $fileName . '" alt="lepa slikca" onclick="popOut(this)">
+                            </div>
+                        ';
+                    }
+                }
+                ?>
+            </div>
+            <div class="popup-image-holder" id="popup-image-holder" onclick="popIn()">
+                <div class="popup-img-frame">
+                    <img src="" alt="" id="popup-image">
+                </div>
+            </div>
+            <script>
+                // popup actions
+                let popupImgHolder = document.getElementById("popup-image-holder");
+                let popupImg = document.getElementById("popup-image");
+
+                function popOut(image) {
+                    popupImgHolder.style.display = "flex";
+                    popupImg.src = image.getAttribute("src");
+                }
+
+                function popIn() {
+                    popupImgHolder.style.display = "none";
+                }
+
+                // better scroll yet to come (or maybe not)
+            </script>
+        </div>
+
         <hr>
+
         <h4>Slovensko ime: </h4>
         <?php echo $plantInfo["imeSlo"]; ?>
         <h4>Italijansko ime: </h4>
@@ -52,27 +97,6 @@ $plantInfo = get_plant_assoc($_GET["plant"]);
         <?php echo $plantInfo["zanimivosti"]; ?>
         <h4>Ali jo imamo na šoli: </h4>
         <?php echo $plantInfo["isAtSchool"] ? "Da" : "Ne"; ?>
-
-        <div class="img-gallery">
-            <div class="inner-img-gallery">
-                <?php
-                $dirName = "./images/plants/" . $plantInfo["imeLat"] . "/";
-                $dir = new DirectoryIterator($dirName);
-
-                foreach ($dir as $fileInfo) {
-                    if (!$fileInfo->isDot()) {
-                        $fileName = $fileInfo->getFilename();
-
-                        echo ' 
-                            <div class="gallery-img-frame">
-                                <img src="' . $dirName . $fileName . '" alt="lepa slikca">
-                            </div>
-                        ';
-                    }
-                }
-                ?>
-            </div>
-        </div>
     </div>
 </main>
 

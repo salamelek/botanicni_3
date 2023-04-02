@@ -1,18 +1,18 @@
 <?php
 // 192.168.56.56 or 127.0.0.1 or 192.168.56.0
-$servername = '192.168.56.0';
+$servername = '192.168.56.56';
 $username = 'homestead';
 $password = 'secret';
 $dbname = "botanicniDB";
 $port = 3306;
 
-$conn = new mysqli($servername, $username, $password, null, $port);
-
-if ($conn->connect_error) {
-    die('Could not Connect MySql Server: ' . $conn->error);
-}
 
 try {
+    $conn = new mysqli($servername, $username, $password, null, $port);
+
+    if ($conn->connect_error) {
+        die('Could not Connect MySql Server: ' . $conn->error);
+    }
     $conn->select_db($dbname);
     create_db($conn);
 } catch (Exception $e) {
