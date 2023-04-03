@@ -37,44 +37,42 @@ $fileCount = count(glob($dirName . "*"));
         <hr <?php if ($fileCount == 0) {echo "hidden";} ?>>
 
         <div class="img-gallery" id="img-gallery" <?php if ($fileCount == 0) {echo "hidden";} ?>>
-            <div class="inner-img-gallery" id="inner-img-gallery">
-                <?php
-                if ($fileCount != 0) {
-                    $dir = new DirectoryIterator($dirName);
-                    foreach ($dir as $fileInfo) {
-                        if (!$fileInfo->isDot() && !$fileInfo->isDir()) {
-                            $fileName = $fileInfo->getFilename();
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php
+                    if ($fileCount != 0) {
+                        $dir = new DirectoryIterator($dirName);
+                        foreach ($dir as $fileInfo) {
+                            if (!$fileInfo->isDot() && !$fileInfo->isDir()) {
+                                $fileName = $fileInfo->getFilename();
 
-                            echo ' 
-                                <div class="gallery-img-frame border">
+                                echo ' 
+                                <div class="swiper-slide">
                                     <img src="' . $dirName . $fileName . '" alt="lepa slikca" onclick="popOut(this)">
                                 </div>
                             ';
+                            }
                         }
                     }
-                }
-                ?>
-            </div>
-            <div class="popup-image-holder" id="popup-image-holder" onclick="popIn()">
-                <div class="popup-img-frame">
-                    <img src="" alt="" id="popup-image">
+                    ?>
                 </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <div class="swiper-pagination"></div>
             </div>
             <script>
-                // popup actions
-                let popupImgHolder = document.getElementById("popup-image-holder");
-                let popupImg = document.getElementById("popup-image");
-
-                function popOut(image) {
-                    popupImgHolder.style.display = "flex";
-                    popupImg.src = image.getAttribute("src");
-                }
-
-                function popIn() {
-                    popupImgHolder.style.display = "none";
-                }
-
-                // better scroll yet to come (or maybe not)
+                let swiper = new Swiper(".mySwiper", {
+                    loop: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                    },
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    }
+                });
             </script>
         </div>
 
@@ -102,4 +100,3 @@ $fileCount = count(glob($dirName . "*"));
         <?php echo $plantInfo["isAtSchool"] ? "Da" : "Ne"; ?>
     </div>
 </main>
-

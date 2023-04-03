@@ -1,6 +1,6 @@
 <?php
 // 192.168.56.56 or 127.0.0.1 or 192.168.56.0
-$servername = '192.168.56.56';
+$servername = '192.168.56.0';
 $username = 'homestead';
 $password = 'secret';
 $dbname = "botanicniDB";
