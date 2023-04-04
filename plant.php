@@ -48,7 +48,9 @@ $fileCount = count(glob($dirName . "*"));
 
                                 echo ' 
                                 <div class="swiper-slide">
-                                    <img src="' . $dirName . $fileName . '" alt="lepa slikca" onclick="popOut(this)">
+                                    <div class="swiper-zoom-container">
+                                        <img src="' . $dirName . $fileName . '" alt="lepa slikca">
+                                    </div>
                                 </div>
                             ';
                             }
@@ -64,13 +66,15 @@ $fileCount = count(glob($dirName . "*"));
             <script>
                 let swiper = new Swiper(".mySwiper", {
                     loop: true,
+                    zoom: true,
                     pagination: {
                         el: ".swiper-pagination",
+                        clickable: true
                     },
                     // Navigation arrows
                     navigation: {
                         nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
+                        prevEl: '.swiper-button-prev'
                     }
                 });
             </script>
