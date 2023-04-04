@@ -66,7 +66,12 @@ $fileCount = count(glob($dirName . "*"));
             <script>
                 let swiper = new Swiper(".mySwiper", {
                     loop: true,
-                    zoom: true,
+                    zoom: {
+                        maxRatio: 5,
+                    },
+                    autoplay: {
+                        delay: 5000,
+                    },
                     pagination: {
                         el: ".swiper-pagination",
                         clickable: true
