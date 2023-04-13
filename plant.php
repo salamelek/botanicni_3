@@ -49,7 +49,9 @@ $fileCount = count(glob($dirName . "*"));
                                 echo ' 
                                 <div class="swiper-slide">
                                     <div class="swiper-zoom-container">
-                                        <img src="' . $dirName . $fileName . '" alt="lepa slikca">
+                                        <div class="my-inner-slide">
+                                            <img src="' . $dirName . $fileName . '" alt="lepa slikca">
+                                        </div>
                                     </div>
                                 </div>
                             ';
