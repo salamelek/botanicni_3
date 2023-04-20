@@ -98,7 +98,7 @@ include "./modules/nav.php";
 
                                 echo ' 
                                 <div class="delete-img-frame">
-                                    <img src="' . $dirName . $fileName . '" alt="lepa slikca">
+                                    <img src="' . $dirName . $fileName . '" alt="lepa slikca" onclick="deleteImage(this) ">
                                 </div>
                             ';
                             }
@@ -106,11 +106,11 @@ include "./modules/nav.php";
                     }
                     ?>
                 </div>
-                <div class="confirm-delete-prompt">
+                <div class="confirm-delete-prompt" id="confirm-delete-popup">
                     <p>Ali želiš izbrisati izbrano sliko?</p>
                     <div class="options-container">
-                        <button>DA</button>
-                        <button>NE</button>
+                        <button type="button" onclick="closePopup()" id="delete-image-confirmed">DA</button>
+                        <button type="button" onclick="closePopup()">NE</button>
                     </div>
                 </div>
             </div>
@@ -130,3 +130,6 @@ include "./modules/nav.php";
         </form>
     </div>
 </main>
+<?php
+include "./modules/js_script.php"
+?>

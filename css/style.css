@@ -197,7 +197,9 @@ main {
     min-width: 20em;
     min-height: 5em;
     background: grey;
-    display: flex;
+    /*display: flex;*/
+    /*should get set by js*/
+    display: none;
     flex-direction: column;
     align-items: center;
     border: 2px dashed red;
