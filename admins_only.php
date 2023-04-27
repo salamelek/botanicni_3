@@ -4,6 +4,7 @@ require "database.php";
 
 include "./modules/head.php";
 include "./modules/nav.php";
+include "./modules/nav_spacer.php";
 ?>
 
 <main>
@@ -39,12 +40,7 @@ include "./modules/nav.php";
                     <h3>Nova rastlina</h3>
                 ';
             }
-
         }
-
-        $plantInfo = get_plant_assoc($_GET["plant"]);
-        $dirName = "./images/plants/" . $plantInfo["imeLat"] . "/";
-        $fileCount = count(glob($dirName . "*"));
         ?>
 
         <form action="./actions/editing_from_action.php" method="post" enctype="multipart/form-data">
@@ -86,37 +82,11 @@ include "./modules/nav.php";
             <input type="file" multiple="multiple" id="upload-images" name="imagesUpload[]">
             <hr>
 
-            <p>Izbriši slike:</p>
-            <div class="delete-images-gallery">
-                <div class="delete-images-inner">
-                    <?php
-                    if ($fileCount != 0) {
-                        $dir = new DirectoryIterator($dirName);
-                        foreach ($dir as $fileInfo) {
-                            if (!$fileInfo->isDot() && !$fileInfo->isDir()) {
-                                $fileName = $fileInfo->getFilename();
-
-                                echo ' 
-                                <div class="delete-img-frame">
-                                    <img src="' . $dirName . $fileName . '" alt="lepa slikca" onclick="deleteImage(this) ">
-                                </div>
-                            ';
-                            }
-                        }
-                    }
-                    ?>
-                </div>
-                <div class="confirm-delete-prompt" id="confirm-delete-popup">
-                    <p>Ali želiš izbrisati izbrano sliko?</p>
-                    <div class="options-container">
-                        <button type="button" onclick="closePopup()" id="delete-image-confirmed">DA</button>
-                        <button type="button" onclick="closePopup()">NE</button>
-                    </div>
-                </div>
-            </div>
-
-            <br>
-            <hr>
+            <?php
+            if (isset($plantDataAssoc)) {
+                include "./modules/delete_images.php";
+            }
+            ?>
             <label>
                 <input type="number" name="oldId" value="<?php echo $plantDataAssoc["id"] ?>" hidden>
             </label>

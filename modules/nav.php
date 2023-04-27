@@ -1,4 +1,4 @@
-<nav>
+<nav id="nav" class="shadow">
     <div class="inner-nav">
         <div class="nav-links-space">
             <a href="./" class="nice-link">Domov</a>
@@ -8,3 +8,17 @@
         </div>
     </div>
 </nav>
+
+<script>
+    // Manage navBar
+    let prevScrollPos = scrollY;
+    window.onscroll = function() {
+        let currentScrollPos = scrollY;
+        if (prevScrollPos > currentScrollPos) {
+            document.getElementById("nav").style.transform = "translateY(0)";
+        } else {
+            document.getElementById("nav").style.transform = "translateY(-100%)";
+        }
+        prevScrollPos = currentScrollPos;
+    }
+</script>

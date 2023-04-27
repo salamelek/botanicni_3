@@ -65,13 +65,17 @@ hr {
 /*NAVIGATION*/
 
 nav {
-    background-color: #74946b;
+    width: 100%;
+    background-color: rgba(45, 58, 42, 0.8);
+    transition: var(--delay-short);
+    backdrop-filter: blur(5px);
+    position: fixed;
 }
 
 .inner-nav {
     display: flex;
-    justify-content: center;
-    padding: 1em;
+    justify-content: right;
+    padding: 1em 5em;
 }
 
 .nav-links-space {
@@ -90,14 +94,23 @@ nav {
     transition: var(--delay-short) ease;
 }
 
-/*MAIN*/
+.nav-spacer {
+    width: 100%;
+}
 
+/*HEADER*/
+
+header img {
+    width: 100%;
+}
+
+/*MAIN*/
 
 main {
 }
 
 .main-wrapper {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 1em;
 }

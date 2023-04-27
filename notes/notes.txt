@@ -28,3 +28,24 @@ zanimivosti:
     uporaba
     drugo
 ikone (užitno, nevarno, zdravilno)
+
+
+KAJ MANJKA
+    Vse:
+        - Font
+        - Footer
+        - Besedila
+    Index:
+        - Immagine copertina
+        - logo (?)
+    Seznam:
+        - filters
+        - load more / next page
+    Search:
+        - Style
+    Plant:
+        - Ikone
+    AdminsOnly - dodaj:
+        - Uredi vse
+    AdminsOnly - uredi:
+        - Zbriši slike

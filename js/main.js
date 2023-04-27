@@ -1,5 +1,5 @@
 function deleteImage(img) {
-    let imgPath = img.src;
+    let imgPath = "../.." + img.src.slice(img.src.indexOf("/images"));
     let popup = document.getElementById("confirm-delete-popup");
     let confirmButton = document.getElementById("delete-image-confirmed");
 
@@ -17,6 +17,8 @@ function deleteImage(img) {
 
         xhttp.open("POST", "./actions/deleteImg.php?file=" + imgPath, true);
         xhttp.send();
+
+        console.log(imgPath)
 
         // location.reload();
     });
