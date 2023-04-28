@@ -1,6 +1,7 @@
 <?php
 include "./modules/head.php";
 include "./modules/nav.php";
+include "./modules/no_nav_spacer.php";
 include "./modules/header.php";
 ?>
 

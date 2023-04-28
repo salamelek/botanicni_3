@@ -3,7 +3,6 @@ require "./database.php";
 
 include "./modules/head.php";
 include "./modules/nav.php";
-include "./modules/nav_spacer.php";
 
 session_start();
 
@@ -18,11 +17,12 @@ $plantList = get_n_plants(100, 0);
             filters here? idk
         </div>
         <hr>
-        <div>
+        <div class="link-holder">
             <?php
+            $i = 0;
             foreach ($plantList as $plant) {
                 echo '
-                    <div class="plant-link">
+                    <div class="plant-link ' . ($i % 2 == 0 ? 'link-light' : 'link-dark') . '">
                         <a href="./plant.php?plant=' . $plant . '" class="nice-link"><p>' . $plant . '</p></a>
                 ';
 
@@ -35,6 +35,7 @@ $plantList = get_n_plants(100, 0);
                 }
 
                 echo '</div>';
+                $i++;
             }
             ?>
         </div>

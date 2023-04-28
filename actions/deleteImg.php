@@ -1,7 +1,9 @@
 <?php
 if (array_key_exists('file', $_REQUEST)) {
-    $imgToDelete = $_REQUEST["file"];
-    echo unlink($imgToDelete);
+    $imgPath = $_REQUEST["file"];
+    $base_dir = realpath($_SERVER["DOCUMENT_ROOT"]);
+    $imgToDelete = $base_dir . $imgPath;
+
     if (file_exists($imgToDelete)) {
         unlink($imgToDelete);
         echo 'File '.$imgToDelete.' has been deleted';

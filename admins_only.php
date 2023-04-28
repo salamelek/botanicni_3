@@ -4,7 +4,6 @@ require "database.php";
 
 include "./modules/head.php";
 include "./modules/nav.php";
-include "./modules/nav_spacer.php";
 ?>
 
 <main>
@@ -83,7 +82,11 @@ include "./modules/nav_spacer.php";
             <hr>
 
             <?php
-            if (isset($plantDataAssoc)) {
+            $plantInfo = get_plant_assoc($_GET["plant"]);
+            $dirName = "./images/plants/" . $plantInfo["imeLat"] . "/";
+            $fileCount = count(glob($dirName . "*"));
+
+            if (isset($plantDataAssoc) && $fileCount > 0) {
                 include "./modules/delete_images.php";
             }
             ?>

@@ -3,7 +3,6 @@ require "./database.php";
 
 include "./modules/head.php";
 include "./modules/nav.php";
-include "./modules/nav_spacer.php";
 
 session_start();
 
