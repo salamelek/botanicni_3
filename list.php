@@ -14,7 +14,7 @@ $plantList = get_n_plants(100, 0);
         <h1>Seznam rastlin</h1>
         <hr>
         <div>
-            filters here? idk
+            [sort by] | [language] | [is in school]
         </div>
         <hr>
         <div class="link-holder">

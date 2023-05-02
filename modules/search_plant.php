@@ -33,7 +33,7 @@
     }
 
     searchBar.addEventListener('input', function() {
-        if (searchBar.value.length >= 2) {
+        if (searchBar.value.length >= 1) {
             addValues();
         }
     });

@@ -1,1 +1,1 @@
-<script src="../js/main.js?v=1.0"></script>
+<script src="./js/main.js?v=1.0"></script>
