@@ -42,39 +42,64 @@ include "./modules/nav.php";
         }
         ?>
 
+        <h1><i><?php echo $_GET["plant"] ?></i></h1>
+        <hr>
+
         <form action="./actions/editing_from_action.php" method="post" enctype="multipart/form-data">
-            <label for="ime-lat">Latinsko ime: </label>
-            <input type="text" id="ime-lat" name="ime-lat" value="<?php echo $plantDataAssoc["imeLat"] ?? ""?>" required>
+            <div class="input-box">
+                <label for="ime-lat">Latinsko ime: </label>
+                <input type="text" id="ime-lat" name="ime-lat" value="<?php echo $plantDataAssoc["imeLat"] ?? ""?>" required>
+            </div>
             <br>
-            <label for="ime-slo">Slovensko ime: </label>
-            <input type="text" id="ime-slo" name="ime-slo" value="<?php echo $plantDataAssoc["imeSlo"] ?? ""?>">
+            <div class="input-box">
+                <label for="ime-slo">Slovensko ime: </label>
+                <input type="text" id="ime-slo" name="ime-slo" value="<?php echo $plantDataAssoc["imeSlo"] ?? ""?>">
+            </div>
             <br>
-            <label for="ime-ita">Italijansko ime: </label>
-            <input type="text" id="ime-ita" name="ime-ita" value="<?php echo $plantDataAssoc["imeIta"] ?? ""?>">
+            <div class="input-box">
+                <label for="ime-ita">Italijansko ime: </label>
+                <input type="text" id="ime-ita" name="ime-ita" value="<?php echo $plantDataAssoc["imeIta"] ?? ""?>">
+            </div>
             <br>
-            <label for="druga-imena-slo">Druga slovenska imena: </label>
-            <input type="text" id="druga-imena-slo" name="druga-imena-slo" value="<?php echo $plantDataAssoc["drugaImenaSlo"] ?? ""?>">
+            <div class="input-box">
+                <label for="druga-imena-slo">Druga slovenska imena: </label>
+                <input type="text" id="druga-imena-slo" name="druga-imena-slo" value="<?php echo $plantDataAssoc["drugaImenaSlo"] ?? ""?>">
+            </div>
             <br>
-            <label for="sorta">Sorta: </label>
-            <input type="text" id="sorta" name="sorta" value="<?php echo $plantDataAssoc["sorta"] ?? ""?>">
+            <div class="input-box">
+                <label for="sorta">Sorta: </label>
+                <input type="text" id="sorta" name="sorta" value="<?php echo $plantDataAssoc["sorta"] ?? ""?>">
+            </div>
             <br>
-            <label for="druzina">Družina: </label>
-            <input type="text" id="druzina" name="druzina" value="<?php echo $plantDataAssoc["druzina"] ?? ""?>" required>
+            <div class="input-box">
+                <label for="druzina">Družina: </label>
+                <input type="text" id="druzina" name="druzina" value="<?php echo $plantDataAssoc["druzina"] ?? ""?>" required>
+            </div>
             <br>
-            <label for="izvor">Izvor: </label>
-            <input type="text" id="izvor" name="izvor" value="<?php echo $plantDataAssoc["izvor"] ?? ""?>">
+            <div class="input-box">
+                <label for="izvor">Izvor: </label>
+                <textarea name="izvor" id="izvor" cols="30" rows="5"><?php echo $plantDataAssoc["izvor"] ?? ""?></textarea>
+            </div>
             <br>
-            <label for="habitat">Habitat: </label>
-            <input type="text" id="habitat" name="habitat" value="<?php echo $plantDataAssoc["habitat"] ?? ""?>">
+            <div class="input-box">
+                <label for="habitat">Habitat: </label>
+                <textarea name="habitat" id="habitat" cols="30" rows="5"><?php echo $plantDataAssoc["habitat"] ?? ""?></textarea>
+            </div>
             <br>
-            <label for="opis">Opis: </label>
-            <input type="text" id="opis" name="opis" value="<?php echo $plantDataAssoc["opis"] ?? ""?>">
+            <div class="input-box">
+                <label for="opis">Opis: </label>
+                <textarea name="opis" id="opis" cols="30" rows="5"><?php echo $plantDataAssoc["opis"] ?? ""?></textarea>
+            </div>
             <br>
-            <label for="zanimivosti">Zanimivosti: </label>
-            <input type="text" id="zanimivosti" name="zanimivosti" value="<?php echo $plantDataAssoc["zanimivosti"] ?? ""?>">
+            <div class="input-box">
+                <label for="zanimivosti">Zanimivosti: </label>
+                <textarea name="zanimivosti" id="zanimivosti" cols="30" rows="5"><?php echo $plantDataAssoc["zanimivosti"] ?? ""?></textarea>
+            </div>
             <br>
-            <label for="is-at-school">Se nahaja na šoli: </label>
-            <input type="checkbox" id="is-at-school" name="is-at-school" <?php if (isset($plantDataAssoc) && $plantDataAssoc["isAtSchool"] == 1) {echo "checked";} ?>>
+            <div class="input-box">
+                <label for="is-at-school">Se nahaja na šoli: </label>
+                <input type="checkbox" id="is-at-school" name="is-at-school" <?php if (isset($plantDataAssoc) && $plantDataAssoc["isAtSchool"] == 1) {echo "checked";} ?>>
+            </div>
             <br>
             <hr>
             <label for="upload-images">Dodaj slike:</label>

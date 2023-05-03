@@ -3,7 +3,8 @@
 
 if (array_key_exists('file', $_REQUEST)) {
     $imgPath = $_REQUEST["file"];
-    $base_dir = realpath($_SERVER["DOCUMENT_ROOT"]) . "/testpage/botanicni3";   // temporary fix
+//    $base_dir = realpath($_SERVER["DOCUMENT_ROOT"]) . "/testpage/botanicni3";   // temporary fix
+    $base_dir = realpath($_SERVER["DOCUMENT_ROOT"]);
     $imgToDelete = $base_dir . $imgPath;
 
     if (file_exists($imgToDelete)) {

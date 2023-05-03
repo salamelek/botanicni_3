@@ -62,7 +62,6 @@ $fileCount = count(glob($dirName . "*"));
                 </div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
                 <div class="swiper-pagination"></div>
             </div>
             <script>
@@ -90,23 +89,32 @@ $fileCount = count(glob($dirName . "*"));
         <hr>
 
         <h4>Slovensko ime: </h4>
-        <?php echo $plantInfo["imeSlo"]; ?>
+        <pre><?php echo $plantInfo["imeSlo"]; ?></pre>
+
         <h4>Italijansko ime: </h4>
-        <?php echo $plantInfo["imeIta"]; ?>
+        <pre><?php echo $plantInfo["imeIta"]; ?></pre>
+
         <h4>Druga slovenska imena: </h4>
-        <?php echo $plantInfo["drugaImenaSlo"]; ?>
+        <p><?php echo $plantInfo["drugaImenaSlo"]; ?></p>
+
         <h4>Sorta: </h4>
-        <?php echo $plantInfo["sorta"]; ?>
+        <p><?php echo $plantInfo["sorta"]; ?></p>
+
         <h4>Družina: </h4>
-        <?php echo $plantInfo["druzina"]; ?>
+        <p><?php echo $plantInfo["druzina"]; ?></p>
+
         <h4>Izvor: </h4>
-        <?php echo $plantInfo["izvor"]; ?>
+        <p><?php echo $plantInfo["izvor"]; ?></p>
+
         <h4>Habitat: </h4>
-        <?php echo $plantInfo["habitat"]; ?>
+        <p><?php echo $plantInfo["habitat"]; ?></p>
+
         <h4>Opis: </h4>
-        <?php echo $plantInfo["opis"]; ?>
+        <p><?php echo $plantInfo["opis"]; ?></p>
+
         <h4>Zanimivosti: </h4>
-        <?php echo $plantInfo["zanimivosti"]; ?>
+        <p><?php echo $plantInfo["zanimivosti"]; ?></p>
+
         <h4>Ali jo imamo na šoli: </h4>
         <?php echo $plantInfo["isAtSchool"] ? "Da" : "Ne"; ?>
     </div>
