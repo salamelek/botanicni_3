@@ -35,6 +35,7 @@ KAJ MANJKA
         - Font
         - Footer
         - Besedila
+        - Sources
     Index:
         - Immagine copertina
         - logo (?)

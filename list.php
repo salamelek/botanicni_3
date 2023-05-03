@@ -6,8 +6,6 @@ include "./modules/nav.php";
 
 session_start();
 
-$plantList = get_n_plants(100, 0);
-
 /* HOW TO LOAD LIST
  *
  * 1) Get the language to filter by
@@ -23,15 +21,25 @@ $plantList = get_n_plants(100, 0);
         <hr>
         <div class="sort-by-filters-div">
             <div class="filters-container">
-                <button onclick="changeOrder(this)">A-Z</button>
-                <button onclick="changePosition(this)">Samo v šoli</button>
-                <button onclick="changeLanguage(this)">Latinščina</button>
+                <button onclick="changeOrder(this)" id="orderBtn">A-Z</button>
+                <button onclick="changePosition(this)" id="positionBtn">Samo v šoli</button>
+                <button onclick="changeLanguage(this)" id="langBtn">Latinščina</button>
                 <button onclick="updateList()">Osveži</button>
             </div>
         </div>
         <hr>
         <div class="link-holder" id="link-holder">
             <?php
+            // filters
+            $numToLoad = 100;
+            $offset = 0;
+
+
+
+
+
+            $plantList = get_n_plants($numToLoad, $offset);
+
             $i = 0;
             foreach ($plantList as $plant) {
                 echo '
