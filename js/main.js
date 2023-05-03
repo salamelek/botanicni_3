@@ -91,7 +91,7 @@ function updateList() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // instead of console.log, set the inner html of the list
-            linkHolder.innerHTML = this.responseText;
+            // linkHolder.innerHTML = this.responseText;
         }
     };
 
