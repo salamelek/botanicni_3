@@ -18,15 +18,19 @@ session_start();
 <main>
     <div class="main-wrapper">
         <h1>Seznam rastlin</h1>
-        <hr>
-        <div class="sort-by-filters-div">
-            <div class="filters-container">
-                <button onclick="changeOrder(this)" id="orderBtn">A-Z</button>
-                <button onclick="changePosition(this)" id="positionBtn">Samo v šoli</button>
-                <button onclick="changeLanguage(this)" id="langBtn">Latinščina</button>
-                <button onclick="updateList()">Osveži</button>
-            </div>
-        </div>
+
+<!--        TODO if someone wants to lose time with filters, i already started :')-->
+
+<!--        <hr>-->
+<!--        <div class="sort-by-filters-div">-->
+<!--            <div class="filters-container">-->
+<!--                <button onclick="changeOrder(this)" id="orderBtn">A-Z</button>-->
+<!--                <button onclick="changePosition(this)" id="positionBtn">Samo v šoli</button>-->
+<!--                <button onclick="changeLanguage(this)" id="langBtn">Latinščina</button>-->
+<!--                <button onclick="updateList()">Osveži</button>-->
+<!--            </div>-->
+<!--        </div>-->
+
         <hr>
         <div class="link-holder" id="link-holder">
             <?php
@@ -67,4 +71,7 @@ session_start();
     </div>
 </main>
 
-<?php include "./modules/js_script.php";?>
+<?php
+include "./modules/footer.php";
+include "./modules/js_script.php";
+?>

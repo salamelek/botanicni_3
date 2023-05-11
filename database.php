@@ -200,6 +200,7 @@ function add_or_edit_plant($plantAssoc): void {
                 habitat = '" . $plantAssoc["habitat"] . "',
                 opis = '" . $plantAssoc["opis"] . "',
                 zanimivosti = '" . $plantAssoc["zanimivosti"] . "',
+                viri = '" . $plantAssoc["viri"] . "',
                 isAtSchool = '" . $plantAssoc["isAtSchool"] . "'
             WHERE id = '" . $plantAssoc["oldId"] . "'
         ";
@@ -213,6 +214,8 @@ function add_or_edit_plant($plantAssoc): void {
 
 
 function get_n_plants($n, $offset): array {
+    // FIXME since this function is thrash and it will be replaced, make sure to replace it in a way that works for searching too (./modules/search_plant.php)
+
     global $conn;
 
     $sql = "
@@ -244,4 +247,23 @@ function delete_plant($imeLat=null, $id=null): void {
     ";
 
     mysqli_query($conn, $sql) or die("could not delete plant");
+}
+
+
+function get_n_plants_new($num, $offset, $searchByLang, $onlyAtSchool, $orderBy, $like) {
+    // TODO this is a draft for the improved list in list.php
+
+    global $conn;
+
+    $sql = "
+        SELECT imeLat, imeSlo, imeIta, drugaImenaSlo
+        FROM Plants
+        WHERE (isAtSchool IS TRUE
+            OR isAtSchool IS $onlyAtSchool)
+            AND $searchByLang LIKE $like
+        ORDER BY $searchByLang $orderBy
+        LIMIT $num
+            OFFSET $offset;
+    ";
+
 }

@@ -133,3 +133,4 @@ include "./modules/header.php";
         <br>
     </div>
 </main>
+<?php include "./modules/footer.php"; ?>

@@ -54,3 +54,5 @@ session_start();
         }
     })
 </script>
+
+<?php include "./modules/footer.php"; ?>

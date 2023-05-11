@@ -17,6 +17,7 @@
     let plantsDataList = document.getElementById("plants-list");
 
     let plantsList = <?php echo json_encode(get_n_plants(1000, 0)) ?>;
+    // TODO get a list of all names, Ita and slo and other slo included
 
     function addValues() {
         // Filter list of words based on user input

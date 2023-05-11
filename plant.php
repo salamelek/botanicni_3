@@ -9,6 +9,7 @@ session_start();
 
 if (!isset($_GET["plant"])) {
     include "./modules/search_plant.php";
+    include "./modules/footer.php";
     return;
 }
 
@@ -117,5 +118,10 @@ $fileCount = count(glob($dirName . "*"));
 
         <h4>Ali jo imamo na šoli: </h4>
         <?php echo $plantInfo["isAtSchool"] ? "Da" : "Ne"; ?>
+
+        <h4>Vir/i:</h4>
+        <p><?php echo $plantInfo["viri"]; ?></p>
     </div>
 </main>
+
+<?php include "./modules/footer.php"; ?>

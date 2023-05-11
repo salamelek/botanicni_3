@@ -97,6 +97,11 @@ include "./modules/nav.php";
             </div>
             <br>
             <div class="input-box">
+                <label for="source">Viri: </label>
+                <textarea name="viri" id="source" cols="30" rows="5"><?php echo $plantDataAssoc["viri"] ?? ""?></textarea>
+            </div>
+            <br>
+            <div class="input-box">
                 <label for="is-at-school">Se nahaja na šoli: </label>
                 <input type="checkbox" id="is-at-school" name="is-at-school" <?php if (isset($plantDataAssoc) && $plantDataAssoc["isAtSchool"] == 1) {echo "checked";} ?>>
             </div>
@@ -129,5 +134,6 @@ include "./modules/nav.php";
     </div>
 </main>
 <?php
-include "./modules/js_script.php"
+include "./modules/footer.php";
+include "./modules/js_script.php";
 ?>
