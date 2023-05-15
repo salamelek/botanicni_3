@@ -33,14 +33,18 @@
     font-family: Alaska,sans-serif;
 }
 
-html, body {
-    height: 100%;
+html {
+    min-height: 100%;
     margin: 0 auto;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 p, h1, h2, h3 {

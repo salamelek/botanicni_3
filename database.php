@@ -190,18 +190,18 @@ function add_or_edit_plant($plantAssoc): void {
         $sql = "
             UPDATE Plants
             SET 
-                imeLat = '" . $plantAssoc["imeLat"] . "', 
-                imeSlo = '" . $plantAssoc["imeSlo"] . "',
-                imeIta = '" . $plantAssoc["imeIta"] . "', 
+                imeLat =        '" . $plantAssoc["imeLat"] . "', 
+                imeSlo =        '" . $plantAssoc["imeSlo"] . "',
+                imeIta =        '" . $plantAssoc["imeIta"] . "', 
                 drugaImenaSlo = '" . $plantAssoc["drugaImenaSlo"] . "',
-                sorta = '" . $plantAssoc["sorta"] . "',
-                druzina = '" . $plantAssoc["druzina"] . "', 
-                izvor = '" . $plantAssoc["izvor"] . "',
-                habitat = '" . $plantAssoc["habitat"] . "',
-                opis = '" . $plantAssoc["opis"] . "',
-                zanimivosti = '" . $plantAssoc["zanimivosti"] . "',
-                viri = '" . $plantAssoc["viri"] . "',
-                isAtSchool = '" . $plantAssoc["isAtSchool"] . "'
+                sorta =         '" . $plantAssoc["sorta"] . "',
+                druzina =       '" . $plantAssoc["druzina"] . "', 
+                izvor =         '" . $plantAssoc["izvor"] . "',
+                habitat =       '" . $plantAssoc["habitat"] . "',
+                opis =          '" . $plantAssoc["opis"] . "',
+                zanimivosti =   '" . $plantAssoc["zanimivosti"] . "',
+                viri =          '" . $plantAssoc["viri"] . "',
+                isAtSchool =    '" . $plantAssoc["isAtSchool"] . "'
             WHERE id = '" . $plantAssoc["oldId"] . "'
         ";
     } else {
@@ -247,6 +247,12 @@ function delete_plant($imeLat=null, $id=null): void {
     ";
 
     mysqli_query($conn, $sql) or die("could not delete plant");
+
+    // delete images folder
+    $dirPath = "./images/plants/" . $imeLat;
+
+    array_map('unlink', glob("$dirPath/*.*"));
+    rmdir($dirPath);
 }
 
 

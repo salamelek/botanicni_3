@@ -43,6 +43,7 @@ include "./modules/nav.php";
         ?>
 
         <h1><i><?php echo $_GET["plant"] ?></i></h1>
+<!--        TODO remove this on creating new plant-->
         <hr>
 
         <form action="./actions/editing_from_action.php" method="post" enctype="multipart/form-data">
@@ -112,12 +113,13 @@ include "./modules/nav.php";
             <hr>
 
             <?php
-            $plantInfo = get_plant_assoc($_GET["plant"]);
-            $dirName = "./images/plants/" . $plantInfo["imeLat"] . "/";
-            $fileCount = count(glob($dirName . "*"));
+            if ($_GET["plant"] != "new") {
+                $dirName = "./images/plants/" . $plantDataAssoc["imeLat"] . "/";
+                $fileCount = count(glob($dirName . "*"));
 
-            if (isset($plantDataAssoc) && $fileCount > 0) {
-                include "./modules/delete_images.php";
+                if (isset($plantDataAssoc) && $fileCount > 0) {
+                    include "./modules/delete_images.php";
+                }
             }
             ?>
             <label>
@@ -130,6 +132,7 @@ include "./modules/nav.php";
                 <input type="number" name="oldId" value="<?php echo $plantDataAssoc["id"] ?>" hidden>
             </label>
             <input type="submit" name="delete-plant" value="Izbriši">
+<!--            TODO delete all images and dir upon deleting plant-->
         </form>
     </div>
 </main>
