@@ -119,7 +119,8 @@ $fileCount = count(glob($dirName . "*"));
         <h4>Ali jo imamo na šoli: </h4>
         <?php echo $plantInfo["isAtSchool"] ? "Da" : "Ne"; ?>
 
-        <h4>Vir/i:</h4>
+        <h4>Viri:</h4>
+<!--        FIXME no array key "viri"-->
         <p><?php echo $plantInfo["viri"]; ?></p>
     </div>
 </main>

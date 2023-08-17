@@ -80,6 +80,7 @@ nav {
     transition: var(--delay-short);
     backdrop-filter: blur(5px);
     position: fixed;
+    padding: 1.5em 0 1.5em 0;
 }
 
 .inner-nav {
@@ -294,4 +295,11 @@ footer {
     padding: 2em;
     background: var(--nav-green);
     flex-shrink: 0;
+}
+
+
+/*MOBILE*/
+
+@media (pointer: coarse) {
+
 }

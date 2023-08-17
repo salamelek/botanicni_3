@@ -1,6 +1,7 @@
 <?php
 // 192.168.56.56 or 127.0.0.1 or 192.168.56.0
-$servername = '192.168.56.0';
+//$servername = '192.168.56.0';
+$servername = '192.168.56.56';
 $username = 'homestead';
 $password = 'secret';
 $dbname = "botanicniDB";
@@ -14,8 +15,9 @@ try {
         die('Could not Connect MySql Server: ' . $conn->error);
     }
     $conn->select_db($dbname);
-    create_db($conn);
-} catch (Exception $e) {
+    // FIXME throws error 1064 (create table Plants)
+//    create_db($conn);
+} catch (PDOException $e) {
     // error code 1049 stands for "unknown database"
     if ($e->getCode() == 1049) {
         $sql = "CREATE DATABASE " . $dbname;
@@ -26,6 +28,10 @@ try {
         } else {
             die("Unable to create new database.");
         }
+    } else if ($e->getCode() == 2002) {
+        die("Can't connect to the server... goodbye");
+    } else {
+        die("A mysql error occurred: " . $e->getCode());
     }
 }
 
