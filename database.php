@@ -61,7 +61,7 @@ function create_db($conn): void {
                 izvor         text       null,
                 habitat       text       null,
                 opis          text       null,
-                zanimivosti   text       null,
+                zanimivosti   text       null,   
                 isAtSchool    tinyint(1) not null,
                 constraint imeLat
                     unique (imeLat)
